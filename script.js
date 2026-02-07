@@ -4,6 +4,25 @@ const qsa = (s, el = document) => [...el.querySelectorAll(s)];
 
 const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
+const topIntro = qs(".top-intro");
+const headerEl = qs(".header");
+
+function syncStickyHeights() {
+  const topH = topIntro ? topIntro.getBoundingClientRect().height : 0;
+  const headH = headerEl ? headerEl.getBoundingClientRect().height : 0;
+
+  document.documentElement.style.setProperty("--topIntroH", `${topH}px`);
+  document.documentElement.style.setProperty("--headerH", `${headH}px`);
+}
+
+window.addEventListener("load", syncStickyHeights);
+window.addEventListener("resize", () => {
+  clearTimeout(syncStickyHeights._t);
+  syncStickyHeights._t = setTimeout(syncStickyHeights, 100);
+});
+
+// pe mobil uneori viewport-ul se schimbă când apare/dispare bara browserului
+window.visualViewport?.addEventListener("resize", syncStickyHeights);
 // Toast
 const toast = qs("#toast");
 function showToast(message) {
