@@ -1,28 +1,26 @@
-// Snappy Studio — PRO interactions (clean + stable)
+// script.js
 const qs = (s, el = document) => el.querySelector(s);
 const qsa = (s, el = document) => [...el.querySelectorAll(s)];
 
 const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
+// Sticky heights -> CSS vars
 const topIntro = qs(".top-intro");
 const headerEl = qs(".header");
 
 function syncStickyHeights() {
   const topH = topIntro ? topIntro.getBoundingClientRect().height : 0;
   const headH = headerEl ? headerEl.getBoundingClientRect().height : 0;
-
   document.documentElement.style.setProperty("--topIntroH", `${topH}px`);
   document.documentElement.style.setProperty("--headerH", `${headH}px`);
 }
-
 window.addEventListener("load", syncStickyHeights);
 window.addEventListener("resize", () => {
   clearTimeout(syncStickyHeights._t);
-  syncStickyHeights._t = setTimeout(syncStickyHeights, 100);
+  syncStickyHeights._t = setTimeout(syncStickyHeights, 120);
 });
-
-// pe mobil uneori viewport-ul se schimbă când apare/dispare bara browserului
 window.visualViewport?.addEventListener("resize", syncStickyHeights);
+
 // Toast
 const toast = qs("#toast");
 function showToast(message) {
@@ -33,30 +31,36 @@ function showToast(message) {
   showToast._t = setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
-// Mobile menu
+// Mobile menu (overlay + scroll lock)
 const navToggle = qs(".nav__toggle");
 const navList = qs("#navList");
+const navOverlay = qs(".nav__overlay");
 const navLinks = qsa(".nav__link");
 
+function openMenu() {
+  if (!navList) return;
+  navList.classList.add("is-open");
+  navOverlay?.removeAttribute("hidden");
+  navToggle?.setAttribute("aria-expanded", "true");
+  navToggle?.setAttribute("aria-label", "Close menu");
+  document.body.classList.add("nav-open");
+}
 function closeMenu() {
   navList?.classList.remove("is-open");
+  navOverlay?.setAttribute("hidden", "true");
   navToggle?.setAttribute("aria-expanded", "false");
+  navToggle?.setAttribute("aria-label", "Open menu");
+  document.body.classList.remove("nav-open");
 }
-navToggle?.addEventListener("click", () => {
-  const isOpen = navList.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-navLinks.forEach(link => link.addEventListener("click", closeMenu));
 
-// close on outside click (mobile)
-document.addEventListener("click", (e) => {
-  if (!navList?.classList.contains("is-open")) return;
-  const inside = navList.contains(e.target) || navToggle?.contains(e.target);
-  if (!inside) closeMenu();
+navToggle?.addEventListener("click", () => {
+  const isOpen = navList?.classList.contains("is-open");
+  isOpen ? closeMenu() : openMenu();
 });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeMenu();
-});
+navOverlay?.addEventListener("click", closeMenu);
+navLinks.forEach(link => link.addEventListener("click", closeMenu));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+window.addEventListener("resize", () => { if (window.innerWidth > 760) closeMenu(); });
 
 // Active nav on scroll
 const sections = qsa("main section[id]");
@@ -125,19 +129,15 @@ if (cursorGlow && !isTouch && !prefersReduced) {
 }
 
 // Spotlight hover (cards follow mouse)
-function enableSpotlight() {
-  const spotEls = qsa(".spotlight");
-  spotEls.forEach(el => {
-    el.addEventListener("pointermove", (e) => {
-      const r = el.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width) * 100;
-      const y = ((e.clientY - r.top) / r.height) * 100;
-      el.style.setProperty("--mx", `${x}%`);
-      el.style.setProperty("--my", `${y}%`);
-    });
+qsa(".spotlight").forEach(el => {
+  el.addEventListener("pointermove", (e) => {
+    const r = el.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    el.style.setProperty("--mx", `${x}%`);
+    el.style.setProperty("--my", `${y}%`);
   });
-}
-enableSpotlight();
+});
 
 // Ripple effect on buttons
 function addRipple(e) {
@@ -148,10 +148,8 @@ function addRipple(e) {
   const size = Math.max(rect.width, rect.height);
   ripple.style.width = ripple.style.height = `${size}px`;
 
-  // keyboard clicks can have 0,0 — center it
   const cx = e.clientX || (rect.left + rect.width / 2);
   const cy = e.clientY || (rect.top + rect.height / 2);
-
   ripple.style.left = `${cx - rect.left - size / 2}px`;
   ripple.style.top = `${cy - rect.top - size / 2}px`;
 
@@ -160,12 +158,21 @@ function addRipple(e) {
 }
 qsa(".btn").forEach(b => b.addEventListener("click", addRipple));
 
-// Typewriter animated text (service-like words)
+// Typewriter text (no wrap: NBSP)
 const typedEl = qs("#typedText");
-const typedPhrases = ["video edits", "thumbnails", "social posts", "websites"];
+const typedPhrases = [
+  "video\u00A0edits",
+  "thumbnails",
+  "social\u00A0posts",
+  "websites"
+];
+
 function typewriter(el, phrases) {
   if (!el) return;
-  if (prefersReduced) { el.textContent = phrases[0]; return; }
+  if (prefersReduced) { el.textContent = phrases[0].replaceAll("\u00A0", " "); return; }
+
+  // MODIFICATION: Removed minWidth setting so caret follows text
+  // el.style.minWidth = ...
 
   let p = 0, i = 0, deleting = false;
 
@@ -176,7 +183,7 @@ function typewriter(el, phrases) {
       el.textContent = full.slice(0, i);
       if (i >= full.length) {
         deleting = true;
-        setTimeout(tick, 950);
+        setTimeout(tick, 900);
         return;
       }
     } else {
@@ -187,50 +194,15 @@ function typewriter(el, phrases) {
         p = (p + 1) % phrases.length;
       }
     }
-    const speed = deleting ? 32 : 46;
-    setTimeout(tick, speed);
+    setTimeout(tick, deleting ? 32 : 46);
   }
   tick();
 }
 typewriter(typedEl, typedPhrases);
 
-// Counters
-function animateCount(el, to, suffix = "") {
-  if (!el) return;
-  if (prefersReduced) { el.textContent = `${to}${suffix}`; return; }
-
-  const duration = 900;
-  const start = performance.now();
-  function step(t) {
-    const p = Math.min(1, (t - start) / duration);
-    const v = Math.round(to * (0.12 + 0.88 * p));
-    el.textContent = `${v}${suffix}`;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-const statCards = qsa(".stat[data-count]");
-if ("IntersectionObserver" in window) {
-  const statObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const card = entry.target;
-      const numEl = qs(".count", card);
-      const to = Number(card.dataset.count || "0");
-      const suffix = card.dataset.suffix || "";
-      animateCount(numEl, to, suffix);
-      statObs.unobserve(card);
-    });
-  }, { threshold: 0.35 });
-
-  statCards.forEach(c => statObs.observe(c));
-}
-
-// Portfolio filtering (segmented)
-const portfolioSection = qs(".portfolio");
-const portfolioTabs = qsa('#portfolio .segmented__btn');
-const works = qsa(".work");
+// Portfolio filtering
+const portfolioTabs = qsa('#portfolio [data-filter]');
+const works = qsa("#portfolioGrid .work");
 
 portfolioTabs.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -243,65 +215,8 @@ portfolioTabs.forEach(btn => {
       const show = filter === "all" || card.dataset.cat === filter;
       card.style.display = show ? "" : "none";
     });
-
-    portfolioSection?.classList.remove("is-hovering");
-    works.forEach(w => w.classList.remove("is-active"));
   });
 });
-
-// Pricing filtering (segmented)
-const pricingSection = qs(".pricing");
-const pricingTabs = qsa('#pricing .segmented__btn');
-const pricingGroups = qsa(".pricing-group");
-
-function showPricing(plan) {
-  pricingGroups.forEach(g => {
-    const match = g.dataset.planGroup === plan;
-    g.hidden = !match;
-  });
-
-  pricingSection?.classList.remove("is-hovering");
-  qsa(".price").forEach(p => p.classList.remove("is-active"));
-}
-pricingTabs.forEach(btn => {
-  btn.addEventListener("click", () => {
-    pricingTabs.forEach(b => { b.classList.remove("is-active"); b.setAttribute("aria-selected", "false"); });
-    btn.classList.add("is-active");
-    btn.setAttribute("aria-selected", "true");
-    showPricing(btn.dataset.plan);
-  });
-});
-showPricing("video");
-
-// Hover focus effect helper (pricing + portfolio)
-function enableHoverFocus(sectionEl, itemSelector) {
-  if (!sectionEl) return;
-  const items = qsa(itemSelector, sectionEl);
-
-  const activate = (item) => {
-    sectionEl.classList.add("is-hovering");
-    items.forEach(i => i.classList.toggle("is-active", i === item));
-  };
-
-  items.forEach(item => {
-    item.addEventListener("pointerenter", () => activate(item));
-    item.addEventListener("focus", () => activate(item));
-  });
-
-  sectionEl.addEventListener("pointerleave", () => {
-    sectionEl.classList.remove("is-hovering");
-    items.forEach(i => i.classList.remove("is-active"));
-  });
-
-  sectionEl.addEventListener("focusout", (e) => {
-    if (!sectionEl.contains(e.relatedTarget)) {
-      sectionEl.classList.remove("is-hovering");
-      items.forEach(i => i.classList.remove("is-active"));
-    }
-  });
-}
-enableHoverFocus(pricingSection, ".price");
-enableHoverFocus(portfolioSection, ".work");
 
 // Portfolio modal
 const modal = qs("#modal");
@@ -342,7 +257,7 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-works.forEach(card => {
+qsa('#portfolioGrid [data-modal="true"]').forEach(card => {
   card.addEventListener("click", () => openModalFromCard(card));
   card.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -360,12 +275,202 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal?.classList.contains("is-open")) closeModal();
 });
 
+// Pricing selectors (category + sub)
+const catBtns = qsa('[data-price-cat-btn]');
+const subBars = qsa('[data-subbar-for]');
+const subBtnSelector = '[data-price-sub-btn]';
+const groups = qsa('.pricing-group[data-price-cat][data-price-sub]');
+
+const priceState = {
+  cat: "video",
+  sub: { video: "long", design: "thumb", web: "landing" }
+};
+
+function showSubBar(cat) {
+  subBars.forEach(bar => {
+    const show = bar.dataset.subbarFor === cat;
+    bar.hidden = !show;
+    bar.style.display = show ? "" : "none"; // extra-safe
+  });
+}
+
+function showPricing(cat, sub) {
+  groups.forEach(g => {
+    const ok = g.dataset.priceCat === cat && g.dataset.priceSub === sub;
+    g.hidden = !ok;
+    g.style.display = ok ? "" : "none"; // extra-safe
+  });
+}
+
+function setActive(btns, activeBtn, attr = "aria-selected") {
+  btns.forEach(b => {
+    const isActive = b === activeBtn;
+    b.classList.toggle("is-active", isActive);
+    b.setAttribute(attr, String(isActive));
+  });
+}
+
+function activateCategory(cat) {
+  priceState.cat = cat;
+  showSubBar(cat);
+
+  const activeCatBtn = catBtns.find(b => b.dataset.priceCatBtn === cat);
+  if (activeCatBtn) setActive(catBtns, activeCatBtn);
+
+  const bar = qs(`[data-subbar-for="${cat}"]`);
+  if (!bar) return;
+
+  const sub = priceState.sub[cat] || qsa(subBtnSelector, bar)[0]?.dataset.priceSubBtn;
+  const subBtns = qsa(subBtnSelector, bar);
+  const activeSubBtn = subBtns.find(b => b.dataset.priceSubBtn === sub) || subBtns[0];
+
+  if (activeSubBtn) {
+    priceState.sub[cat] = activeSubBtn.dataset.priceSubBtn;
+    setActive(subBtns, activeSubBtn);
+  }
+
+  showPricing(cat, priceState.sub[cat]);
+}
+
+catBtns.forEach(btn => {
+  btn.addEventListener("click", () => activateCategory(btn.dataset.priceCatBtn));
+});
+
+subBars.forEach(bar => {
+  qsa(subBtnSelector, bar).forEach(btn => {
+    btn.addEventListener("click", () => {
+      const cat = bar.dataset.subbarFor;
+      priceState.sub[cat] = btn.dataset.priceSubBtn;
+      setActive(qsa(subBtnSelector, bar), btn);
+      showPricing(cat, priceState.sub[cat]);
+    });
+  });
+});
+
+activateCategory("video");
+
+// Contact service selector (Nested: Category -> Sub-service)
+const serviceInput = qs("#serviceInput");
+const contactCatBtns = qsa('[data-contact-cat]');
+const contactSubContainers = qsa('[data-contact-sub-for]');
+
+function setContactService(value) {
+    if (!serviceInput) return;
+    serviceInput.value = value;
+}
+
+function activateContactCategory(cat) {
+    // 1. Highlight Category Button
+    contactCatBtns.forEach(btn => {
+        const isActive = btn.dataset.contactCat === cat;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-selected", String(isActive));
+    });
+
+    // 2. Show Sub-options
+    contactSubContainers.forEach(con => {
+        const isMatch = con.dataset.contactSubFor === cat;
+        con.hidden = !isMatch;
+        con.style.display = isMatch ? "" : "none";
+        
+        // Auto-select first option if none selected in this group?
+        // Or just let user click. Let's select the first one visually to indicate default.
+        if (isMatch) {
+             const subBtns = qsa('[data-service-btn]', con);
+             const active = subBtns.find(b => b.classList.contains('is-active'));
+             if (!active && subBtns.length > 0) {
+                 // Trigger click on first one
+                 subBtns[0].click();
+             }
+        }
+    });
+}
+
+// Bind Category Clicks
+contactCatBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        activateContactCategory(btn.dataset.contactCat);
+    });
+});
+
+// Bind Sub-service Clicks (global delegation or specific)
+contactSubContainers.forEach(con => {
+    const btns = qsa('[data-service-btn]', con);
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Deselect all sub buttons in ALL containers? Or just this one?
+            // "Select a service" implies only one.
+            qsa('[data-service-btn]').forEach(b => {
+                b.classList.remove('is-active');
+                b.setAttribute('aria-checked', 'false');
+            });
+
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-checked', 'true');
+            setContactService(btn.dataset.serviceBtn);
+        });
+    });
+});
+
+// Initialize Contact Form (Default to Video)
+activateContactCategory('video');
+
+// Pricing choose buttons -> auto-fill contact service
+qsa("[data-choose-package]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const service = btn.dataset.service || "";
+    if (!service) return;
+
+    // Detect category
+    let cat = "video";
+    if (service.toLowerCase().includes("thumbnail")) cat = "design";
+    else if (service.toLowerCase().includes("social")) cat = "design";
+    else if (service.toLowerCase().includes("web")) cat = "web";
+    
+    // Switch to that category in form
+    activateContactCategory(cat);
+
+    // Find the specific button if it matches roughly?
+    // The pricing services are like "Video Editing - Long Form (Starter)"
+    // The contact buttons are "Long-Form Video", "Short-Form Video".
+    // We can just set the hidden input directly if no exact button match.
+    setContactService(service);
+
+    // Also highlight the closest match button if possible
+    const s = service.toLowerCase();
+    const subBtns = qsa('[data-service-btn]');
+    let matchedBtn = null;
+    
+    // Fuzzy match logic
+    if (s.includes("long-form")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Long-Form Video");
+    else if (s.includes("short-form")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Short-Form Video");
+    else if (s.includes("thumbnail")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Thumbnail Design");
+    else if (s.includes("social")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Social Media Design");
+    else if (s.includes("landing")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Landing Page");
+    else if (s.includes("shop")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Shop Page");
+    else if (s.includes("custom")) matchedBtn = subBtns.find(b => b.dataset.serviceBtn === "Custom Website");
+    
+    if (matchedBtn) {
+        // Deselect others
+        qsa('[data-service-btn]').forEach(b => b.classList.remove('is-active'));
+        matchedBtn.classList.add('is-active');
+    }
+
+    // hint
+    const form = qs("#contactForm");
+    const msg = qs('textarea[name="message"]', form);
+    if (msg && !msg.value.trim()) {
+      msg.value = `Hi! I’m interested in: ${service}\n\nDeadline:\nReferences:\nGoals:`;
+    }
+  });
+});
+
 // Back to top
 qs("#backToTop")?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
 });
 
-// Contact form (Formspree submit)
+// Contact form (Formspree)
 qs("#contactForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.currentTarget;
@@ -373,7 +478,6 @@ qs("#contactForm")?.addEventListener("submit", async (e) => {
   submitBtn?.setAttribute("disabled", "true");
 
   const fd = new FormData(form);
-
   const name = String(fd.get("name") || "").trim();
   const email = String(fd.get("email") || "").trim();
   const service = String(fd.get("service") || "").trim();
@@ -386,14 +490,10 @@ qs("#contactForm")?.addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch(form.action, {
-      method: "POST",
-      body: fd,
-      headers: { "Accept": "application/json" }
-    });
-
+    const res = await fetch(form.action, { method: "POST", body: fd, headers: { "Accept": "application/json" } });
     if (res.ok) {
       form.reset();
+      activateContactCategory("video");
       showToast("Message sent! We'll get back to you ASAP.");
     } else {
       const data = await res.json().catch(() => null);
@@ -405,85 +505,4 @@ qs("#contactForm")?.addEventListener("submit", async (e) => {
   } finally {
     submitBtn?.removeAttribute("disabled");
   }
-});
-
-// Reviews (LocalStorage)
-const REV_KEY = "snappy_reviews_v3";
-const reviewsList = qs("#reviewsList");
-
-function loadReviews() {
-  try {
-    const raw = localStorage.getItem(REV_KEY);
-    const arr = raw ? JSON.parse(raw) : [];
-    return Array.isArray(arr) ? arr : [];
-  } catch { return []; }
-}
-function saveReviews(reviews) {
-  localStorage.setItem(REV_KEY, JSON.stringify(reviews));
-}
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-function stars(n) {
-  const x = Math.max(1, Math.min(5, Number(n) || 5));
-  return "★".repeat(x) + "☆".repeat(5 - x);
-}
-function renderReviews() {
-  const reviews = loadReviews();
-  if (!reviewsList) return;
-
-  if (reviews.length === 0) {
-    reviewsList.innerHTML = `<p class="muted">No reviews yet. Be the first.</p>`;
-    return;
-  }
-
-  const items = [...reviews].reverse().slice(0, 10);
-  reviewsList.innerHTML = items.map(r => `
-    <article class="review">
-      <div class="review__top">
-        <div>
-          <div class="review__name">${escapeHtml(r.reviewer)}</div>
-          <div class="review__service">${escapeHtml(r.service)} • <span class="muted">${escapeHtml(r.date)}</span></div>
-        </div>
-        <div class="badge badge--glow">${stars(r.rating)}</div>
-      </div>
-      <div class="review__text muted">${escapeHtml(r.text)}</div>
-    </article>
-  `).join("");
-}
-renderReviews();
-
-qs("#reviewForm")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const fd = new FormData(e.currentTarget);
-
-  const reviewer = String(fd.get("reviewer") || "").trim();
-  const service = String(fd.get("service") || "").trim();
-  const rating = Number(fd.get("rating") || 0);
-  const text = String(fd.get("text") || "").trim();
-
-  if (!reviewer || !service || !rating || !text) {
-    showToast("Please fill in all review fields.");
-    return;
-  }
-
-  const reviews = loadReviews();
-  const date = new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
-  reviews.push({ reviewer, service, rating, text, date });
-  saveReviews(reviews);
-
-  e.currentTarget.reset();
-  renderReviews();
-  showToast("Thanks! Your review was added.");
-});
-
-qs("#clearReviews")?.addEventListener("click", () => {
-  localStorage.removeItem(REV_KEY);
-  renderReviews();
-  showToast("Reviews cleared.");
 });
