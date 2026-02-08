@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snappy Studio — Creative Agency</title>
+  <meta name="description" content="Snappy Studio delivers Video Editing, Thumbnail Design, Social Media Design, and Web Development — fast, clean, premium." />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="script.js"></script>
+</head>
+
+<body id="top">
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+    <div class="orb orb--4"></div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="Snappy Studio home">
+        <img class="brand__logo" src="assets/logo3.png" alt="Snappy Studio logo">
+        <span class="brand__text">Snappy Studio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navList"
+          aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav__overlay" hidden></div>
+
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#workflow">Workflow</a></li>
+          <li><a class="nav__link" href="#team">Meet the Team</a></li>
+          <li><a class="nav__link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav__link" href="#pricing">Pricing</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="nav__link" href="#reviews">Reviews</a></li>
+
+          <li class="nav__mobile-cta">
+            <a class="btn btn--primary w100 magnet" href="#contact">Start a project</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="section hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__left reveal">
+            <div class="hero__chips">
+              <span class="chip-mini chip-mini--live">Fast Delivery</span>
+              <span class="chip-mini">Premium Quality</span>
+              <span class="chip-mini">Clean Workflow</span>
+            </div>
+
+            <div class="kicker">Creative agency for creators & brands</div>
+
+            <h1 class="hero__title">
+              <span class="hero__titleLine">Clean, high-impact</span>
+              <span class="hero__titleLine hero__titleLine--typed">
+                <span class="grad typed" id="typedText">video edits</span>
+                <span class="typed-wrap" aria-hidden="true"><span class="caret"></span></span>
+              </span>
+            </h1>
+
+            <p class="lead">
+              We build visuals that look expensive: <b>Video Editing</b>, <b>Thumbnail Design</b>, <b>Social Media Design</b> and <b>Web Development</b>.
+              Fast replies, consistent output, and a workflow that stays smooth.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary magnet" href="#portfolio">View Portfolio</a>
+              <a class="btn btn--ghost magnet" href="#pricing">See Pricing</a>
+            </div>
+
+            <!-- SIMPLE proof row (replaces the two big cards) -->
+            <!-- MODIFICATION 2: Metrics Bar -->
+<div class="hero__proof card spotlight" aria-label="Performance metrics">
+  <div class="hero__proofRow">
+    <div class="hero__proofLabel">
+    </div>
+
+    <div class="hero__metrics-grid">
+      <div class="metric">
+        <span class="muted tiny">Response time</span>
+        <span class="metric__val">~2h</span>
+      </div>
+
+      <span class="hero__proofSep" aria-hidden="true">•</span>
+
+      <div class="metric">
+        <span class="muted tiny">Easter & Christmas</span>
+        <span class="metric__val">DISCOUNT</span>
+      </div>
+
+      <span class="hero__proofSep" aria-hidden="true">•</span>
+
+      <div class="metric">
+        <span class="muted tiny">Avg. Rating</span>
+        <span class="metric__val">4.9/5</span>
+      </div>
+
+      <span class="hero__proofSep" aria-hidden="true">•</span>
+
+      <div class="metric">
+        <span class="muted tiny">Clients</span>
+        <span class="metric__val">98% HAPPY</span>
+      </div>
+
+      <span class="hero__proofSep" aria-hidden="true">•</span>
+
+      <div class="metric">
+        <span class="muted tiny">Projects Capacity</span>
+        <span class="metric__val">10-20/MONTH</span>
+      </div>
+    </div>
+  </div>
+</div>
+       </div><!-- /hero__left -->
+      </div><!-- /hero__grid -->
+    </div><!-- /container -->
+  </section><!-- /#home -->
+
+  <!-- WEEKLY SCHEDULE -->
+  <section class="section" aria-label="Weekly schedule">
+    <div class="container reveal">
+      <section class="week-schedule card spotlight" aria-label="Weekly schedule">
+        <div class="week-schedule__head">
+          <h3 class="week-schedule__title">Weekly Schedule</h3>
+          <p class="muted tiny">Working hours & client call day</p>
+        </div>
+
+        <div class="week-schedule__grid" role="list">
+          <div class="week-day week-day--open" role="listitem" aria-label="Monday 08:00-22:00">
+            <span class="week-day__name">🗓️ Monday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">📦 Work</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--open" role="listitem" aria-label="Tuesday 08:00-22:00">
+            <span class="week-day__name">🗓️ Tuesday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">📦 Work</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--open" role="listitem" aria-label="Wednesday 08:00-22:00">
+            <span class="week-day__name">🗓️ Wednesday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">📦 Work</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--open" role="listitem" aria-label="Thursday 08:00-22:00">
+            <span class="week-day__name">🗓️ Thursday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">📦 Work</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--open" role="listitem" aria-label="Friday 08:00-22:00">
+            <span class="week-day__name">🗓️ Friday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">📦 Work</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--call" role="listitem" aria-label="Saturday 08:00-22:00 Client calls and next week planning">
+            <span class="week-day__name">🗓️ Saturday</span>
+            <span class="week-day__time">🔓 08:00–22:00</span>
+            <span class="week-day__tag">⭐ Calls & Delivery</span>
+            <span class="week-day__tag">✅ Online</span>
+          </div>
+
+          <div class="week-day week-day--closed" role="listitem" aria-label="Sunday Closed">
+            <span class="week-day__name">🗓️ Sunday</span>
+            <span class="week-day__time">🔒 Closed</span>
+            <span class="week-day__tag">📥 Calls with clients</span>
+            <span class="week-day__tag">❌ Offline</span>
+          </div>
+        </div>
+
+        <div class="week-schedule__legend">
+          <span class="legend-item"><span class="legend-dot legend-dot--open" aria-hidden="true"></span><span class="muted tiny">Work: 08:00–22:00</span></span>
+          <span class="legend-item"><span class="legend-dot legend-dot--call" aria-hidden="true"></span><span class="muted tiny">Saturday: client calls + delivery + next week planning</span></span>
+          <span class="legend-item"><span class="legend-dot legend-dot--closed" aria-hidden="true"></span><span class="muted tiny">Sunday: closed but reviewing inbox for future clients</span></span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow" class="section">
+      <div class="container reveal">
+        <div class="workflow-one card spotlight">
+          <div class="workflow-one__head">
+            <div>
+              <h2 style="margin:0;">Workflow</h2>
+              <p class="muted" style="margin:.35rem 0 0;">Professional, predictable, and clean — you always know what’s next.</p>
+            </div>
+            <div class="workflow-one__badges">
+              <span class="badge badge--glow">5 steps</span>
+              <span class="badge badge--muted">Clean delivery</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- MODIFICATION 4: Horizontal Workflow (Updated) -->
+          <div class="workflow-horiz reveal">
+              <div class="wf-track">
+                <div class="wf-line-bg"></div>
+                <div class="wf-line-progress">
+                   <div class="wf-line-head"></div>
+                </div>
+              </div>
+
+              <div class="wf-steps">
+                 <div class="wf-step">
+                     <div class="wf-marker">
+                       <div class="wf-node"></div>
+                     </div>
+                     <div class="wf-content">
+                       <div class="wf-label">Brief</div>
+                       <div class="wf-desc">Goals, references, deadlines, platform.</div>
+                     </div>
+                 </div>
+                 <div class="wf-step">
+                     <div class="wf-marker">
+                       <div class="wf-node"></div>
+                     </div>
+                     <div class="wf-content">
+                       <div class="wf-label">Plan</div>
+                       <div class="wf-desc">Style, structure, deliverables, timeline.</div>
+                     </div>
+                 </div>
+                 <div class="wf-step">
+                     <div class="wf-marker">
+                       <div class="wf-node"></div>
+                     </div>
+                     <div class="wf-content">
+                       <div class="wf-label">Production</div>
+                       <div class="wf-desc">Editing/design/build — clean iterations.</div>
+                     </div>
+                 </div>
+                 <div class="wf-step">
+                     <div class="wf-marker">
+                       <div class="wf-node"></div>
+                     </div>
+                     <div class="wf-content">
+                       <div class="wf-label">Review</div>
+                       <div class="wf-desc">Revisions in the agreed direction.</div>
+                     </div>
+                 </div>
+                 <div class="wf-step">
+                     <div class="wf-marker">
+                       <div class="wf-node"></div>
+                     </div>
+                     <div class="wf-content">
+                       <div class="wf-label">Delivery</div>
+                       <div class="wf-desc">Organized exports, platform-ready files.</div>
+                     </div>
+                 </div>
+              </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="note" style="margin:0;">
+            <span class="badge badge--muted">Note</span>
+            <span class="muted">If you have an urgent deadline, mention it in <a class="link-inline" href="#contact">Contact</a> and we’ll prioritize.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section">
+      <div class="container section__head reveal">
+        <h2>Meet the Team</h2>
+        <p class="muted">Small team. Big output. Clean communication.</p>
+      </div>
+
+      <div class="container team-grid">
+        <!-- Lead centered -->
+        <article class="card spotlight reveal team-lead">
+          <div class="person person--center">
+            <div class="avatar" aria-hidden="true"></div>
+
+            <div class="person__content">
+              <div class="row row--between person__header">
+                <div class="row person__title">
+                  <h3 class="person__name">Rusu Eduard</h3>
+                  <span class="badge badge--accent">CEO</span>
+                </div>
+
+                <a class="ig-btn ig-btn--sm" href="https://instagram.com/hoeduardd" target="_blank" rel="noopener" aria-label="Instagram: @hoeduardd">
+                  <span class="ig-btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                      <path d="M16 11.37a4 4 0 1 1-7.9 1.26 4 4 0 0 1 7.9-1.26z"></path>
+                      <path d="M17.5 6.5h.01"></path>
+                    </svg>
+                  </span>
+                  <span class="ig-btn__text">@hoeduardd</span>
+                </a>
+              </div>
+
+              <p class="muted">Project direction + quality control. Keeps the workflow clean and delivery on time.</p>
+
+              <div class="keywords keywords--center">
+                <span class="keyword">Management</span>
+                <span class="keyword">Web Development</span>
+                <span class="keyword">Web Strategist</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card spotlight reveal">
+          <div class="person">
+            <div class="avatar avatar--alt" aria-hidden="true"></div>
+
+            <div class="person__content">
+              <div class="row row--between person__header">
+                <div class="row person__title">
+                  <h3 class="person__name">Tauru Cristian</h3>
+                  <span class="badge badge--accent2">Co-CEO</span>
+                </div>
+
+                <a class="ig-btn ig-btn--sm" href="https://instagram.com/cristiuq8" target="_blank" rel="noopener" aria-label="Instagram: @cristiuq8">
+                  <span class="ig-btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                      <path d="M16 11.37a4 4 0 1 1-7.9 1.26 4 4 0 0 1 7.9-1.26z"></path>
+                      <path d="M17.5 6.5h.01"></path>
+                    </svg>
+                  </span>
+                  <span class="ig-btn__text">@cristiuq8</span>
+                </a>
+              </div>
+
+              <p class="muted">Thumbnail & social design focused on CTR, clarity, and consistent brand systems.</p>
+
+              <div class="keywords keywords--center">
+                <span class="keyword">Thumbnails</span>
+                <span class="keyword">Social Design</span>
+                <span class="keyword">CTR-focused</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card spotlight reveal">
+          <div class="person">
+            <div class="avatar" aria-hidden="true"></div>
+
+            <div class="person__content">
+              <div class="row row--between person__header">
+                <div class="row person__title">
+                  <h3 class="person__name">Tont Vlad</h3>
+                  <span class="badge badge--accent2">Co-CEO</span>
+                </div>
+
+                <a class="ig-btn ig-btn--sm" href="https://instagram.com/tontzvlad" target="_blank" rel="noopener" aria-label="Instagram: @tontzvlad">
+                  <span class="ig-btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                      <path d="M16 11.37a4 4 0 1 1-7.9 1.26 4 4 0 0 1 7.9-1.26z"></path>
+                      <path d="M17.5 6.5h.01"></path>
+                    </svg>
+                  </span>
+                  <span class="ig-btn__text">@tontzvlad</span>
+                </a>
+              </div>
+
+              <p class="muted">Video editing, strategy, and social media management for content creators.</p>
+
+              <div class="keywords keywords--center">
+                <span class="keyword">Video Editing</span>
+                <span class="keyword">Video Strategist</span>
+                <span class="keyword">Social Media</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section portfolio">
+      <div class="container section__head reveal">
+        <h2>Portfolio</h2>
+        <p class="muted">Pick a category. Click a project to open details.</p>
+      </div>
+
+      <div class="container reveal portfolio__tabs">
+        <div class="segmented segmented--fill segmented--center" role="tablist" aria-label="Portfolio categories">
+          <button class="segmented__btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="segmented__btn" data-filter="video" role="tab" aria-selected="false">Video Editing</button>
+          <button class="segmented__btn" data-filter="thumb" role="tab" aria-selected="false">Thumbnail Design</button>
+          <button class="segmented__btn" data-filter="social" role="tab" aria-selected="false">Social Media Design</button>
+          <button class="segmented__btn" data-filter="web" role="tab" aria-selected="false">Web Development</button>
+        </div>
+      </div>
+
+      <div class="container grid grid--4" id="portfolioGrid">
+        <!-- Video (external links) -->
+        <a class="card spotlight work"
+           data-cat="video"
+           href="https://youtu.be/cZOjD_Rxd4Q"
+           target="_blank"
+           rel="noopener"
+           aria-label="Open Long Form Video">
+          <div class="work__thumb" style='background-image:url("assets/CLICK!.png");'></div>
+          <div class="work__meta">
+            <h3>Long Form Video</h3>
+            <p class="muted">YouTube Video</p>
+          </div>
+        </a>
+
+        <a class="card spotlight work"
+           data-cat="video"
+           href="https://www.tiktok.com/@vladtontz.contentcreator"
+           target="_blank"
+           rel="noopener"
+           aria-label="Open Shorts Pack">
+          <div class="work__thumb" style='background-image:url("assets/CLICK!.png");'></div>
+          <div class="work__meta">
+            <h3>Shorts Pack</h3>
+            <p class="muted">Short-Form Videos</p>
+          </div>
+        </a>
+
+        <!-- Thumbnails (modal) -->
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="thumb"
+          data-title="EAFC 26 Thumbnail" data-subtitle="Mobile-optimized"
+          data-details="Strong contrast, readable typography, and composition tuned for CTR.">
+          <div class="work__thumb" style='background-image:url("assets/thumb-1.jpg");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>EAFC 26 Thumbnail</h3>
+              <span class="badge badge--accent2">Thumb</span>
+            </div>
+            <p class="muted tiny">Contrast • Clarity • CTR</p>
+          </div>
+        </article>
+
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="thumb"
+          data-title="EAFC Mobile" data-subtitle="Mobile-optimized"
+          data-details="Strong contrast, readable typography, and composition tuned for CTR.">
+          <div class="work__thumb" style='background-image:url("assets/thumb-2.jpg");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>EAFC Mobile</h3>
+              <span class="badge badge--accent2">Thumb</span>
+            </div>
+            <p class="muted tiny">Contrast • Clarity • CTR</p>
+          </div>
+        </article>
+
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="thumb"
+          data-title="IRL Thumbnail System" data-subtitle="Consistent series style"
+          data-details="Template system for a consistent look across a channel’s uploads.">
+          <div class="work__thumb" style='background-image:url("assets/thumb-3.jpg");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>IRL Thumbnail</h3>
+              <span class="badge badge--accent2">Thumb</span>
+            </div>
+            <p class="muted tiny">Vlog • Matchday • Soccer</p>
+          </div>
+        </article>
+
+        <!-- Social (modal) -->
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="social"
+          data-title="Instagram Carousel" data-subtitle="Readable & modern"
+          data-details="Typography-driven layouts, spacing, and hierarchy for clean social posts.">
+          <div class="work__thumb" style='background-image:url("assets/festival.jpg");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>IG Poster</h3>
+              <span class="badge badge--muted">Social</span>
+            </div>
+            <p class="muted tiny">Poster • Festival • Style</p>
+          </div>
+        </article>
+
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="social"
+          data-title="Stories Pack" data-subtitle="Brand stories"
+          data-details="Reusable story components for consistent posting and quick production.">
+          <div class="work__thumb" style='background-image:url("assets/branding.png");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>Branding Pack</h3>
+              <span class="badge badge--muted">Brand</span>
+            </div>
+            <p class="muted tiny">Components • Brand • Speed</p>
+          </div>
+        </article>
+
+        <!-- Web (modal) -->
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="web"
+          data-title="Landing Page" data-subtitle="Fast, modern, responsive"
+          data-details="Modern UI, responsive layout, and optimized structure for conversion.">
+          <div class="work__thumb" style='background-image:url("assets/image.png");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>Landing Page</h3>
+              <span class="badge badge--web">Web</span>
+            </div>
+            <p class="muted tiny">UI • Performance • Responsive</p>
+          </div>
+        </article>
+
+        <article class="card work spotlight reveal" tabindex="0" data-modal="true" data-cat="web"
+          data-title="Custom Website" data-subtitle="Tailored for your brand"
+          data-details="Custom-built website with a focus on brand identity, user experience, and performance.">
+          <div class="work__thumb" style='background-image:url("assets/image18.png");'></div>
+          <div class="work__meta">
+            <div class="row row--between">
+              <h3>Custom Website</h3>
+              <span class="badge badge--web">Web</span>
+            </div>
+            <p class="muted tiny">Custom • Brand • Performance</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section pricing">
+      <div class="container section__head reveal">
+        <h2>Pricing</h2>
+        <p class="muted">Pick a category, then a format. Simple, clean, and fast.</p>
+        <p class="muted">The paying will be only on EUR / RON, we don't support other currencies or taxes.</p>
+        <p class="muted">The prices below are just a starting point, both for Packs or Add-ons, and may vary depending on complexity.</p>
+      </div>
+
+      <div class="container">
+        <div class="pricing__wrap reveal">
+
+          <!-- SELECTORS: 3 left + 2 right -->
+          <div class="pricing__selectors" aria-label="Pricing selectors">
+            <!-- LEFT: main domains -->
+            <div class="segmented segmented--top" role="tablist" aria-label="Pricing categories">
+              <button class="segmented__btn is-active" data-price-cat-btn="video" role="tab" aria-selected="true">Video</button>
+              <button class="segmented__btn" data-price-cat-btn="design" role="tab" aria-selected="false">Design</button>
+              <button class="segmented__btn" data-price-cat-btn="web" role="tab" aria-selected="false">Web</button>
+            </div>
+
+            <!-- middle line -->
+            <div class="pricing__divider" aria-hidden="true"></div>
+
+            <!-- RIGHT: subcategories -->
+            <div class="pricing__subwrap">
+              <!-- VIDEO subcats -->
+              <div class="segmented pricing__sub" data-subbar-for="video" role="tablist" aria-label="Video types">
+                <button class="segmented__btn is-active" data-price-sub-btn="long" role="tab" aria-selected="true">Long-Form</button>
+                <button class="segmented__btn" data-price-sub-btn="short" role="tab" aria-selected="false">Short-Form</button>
+              </div>
+
+              <!-- DESIGN subcats -->
+              <div class="segmented pricing__sub" data-subbar-for="design" role="tablist" aria-label="Design types" hidden>
+                <button class="segmented__btn is-active" data-price-sub-btn="thumb" role="tab" aria-selected="true">Thumbnail Design</button>
+                <button class="segmented__btn" data-price-sub-btn="social" role="tab" aria-selected="false">Social Media Design</button>
+              </div>
+
+              <!-- WEB subcats -->
+              <div class="segmented pricing__sub" data-subbar-for="web" role="tablist" aria-label="Web types" hidden>
+                <button class="segmented__btn is-active" data-price-sub-btn="landing" role="tab" aria-selected="true">Landing Page</button>
+                <button class="segmented__btn" data-price-sub-btn="shop" role="tab" aria-selected="false">Shop Page</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing__stack">
+<!-- VIDEO LONG -->
+<div class="pricing-group" data-price-cat="video" data-price-sub="long">
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Video Editing — Long-Form</h3>
+      <p class="pricing__subtitle muted">YouTube long-form with clean pacing, retention cuts, and premium feel.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Video Editing — Long-Form (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--4">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Best for trying the workflow</p>
+      <div class="price__value">€69.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 1 long-form edit (clean pacing + captions)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> 1 revision included</li>
+        <li><strong>Delivery:</strong> 48–72h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Long-Form (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Creator</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Most popular for creators</p>
+      <div class="price__value">€279.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 4 long-form edits / month (structure + retention cuts)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> 2 revisions / video</li>
+        <li><strong>Delivery:</strong> 24–48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Video Editing — Long-Form (Creator)">Choose Creator</a>
+    </article>
+
+    <article class="card price spotlight">
+      <span class="badge badge--accent2">Studio</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">For consistent weekly uploads</p>
+      <div class="price__value">€559.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 8 long-form edits / month (retention + light motion)</li>
+        <li><strong>Limits:</strong> No heavy VFX/3D, filming, script, or voiceover included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><span class="asap asap--clock">ASAP</span> Turnaround</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Long-Form (Studio)">Choose Studio</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">High-volume + priority pipeline</p>
+      <div class="price__value">€839.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 12 long-form edits / month (priority scheduling)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><strong>Turnaround:</strong> Priority pipeline + weekly planning</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Long-Form (Ultra)">Choose Ultra</a>
+    </article>
+  </div>
+
+  <p class="muted tiny" style="margin-top:.65rem;">*Unlimited revisions within the agreed style/direction.</p>
+</div>
+
+<!-- VIDEO SHORT -->
+<div class="pricing-group" data-price-cat="video" data-price-sub="short" hidden>
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Video Editing — Short-Form</h3>
+      <p class="pricing__subtitle muted">TikTok / Reels / Shorts — punchy hooks, crisp pacing, platform-ready.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Video Editing — Short-Form (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--4">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Perfect to test quality</p>
+      <div class="price__value">€59.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 3 short clips / pack (hook + captions)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> 1 revision included</li>
+        <li><strong>Delivery:</strong> 48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Short-Form (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Creator</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Most popular short pack</p>
+      <div class="price__value">€239.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 12 short clips / month (captions + tasteful emojis)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> 2 revisions / clip</li>
+        <li><strong>Delivery:</strong> 24–48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Video Editing — Short-Form (Creator)">Choose Creator</a>
+    </article>
+
+    <article class="card price spotlight">
+      <span class="badge badge--accent2">Studio</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">For daily posting</p>
+      <div class="price__value">€599.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 30 short clips / month (posting-ready exports)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><span class="asap asap--clock">ASAP</span> Turnaround</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Short-Form (Studio)">Choose Studio</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">High volume + priority</p>
+      <div class="price__value">€1,199.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 60 short clips / month (advanced caption styles)</li>
+        <li><strong>Limits:</strong> No filming, script, voiceover, or stock/licensing included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><strong>Turnaround:</strong> Priority scheduling + weekly planning</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Video Editing — Short-Form (Ultra)">Choose Ultra</a>
+    </article>
+  </div>
+
+  <p class="muted tiny" style="margin-top:.65rem;">*Unlimited revisions within the agreed style/direction.</p>
+</div>
+
+<!-- DESIGN THUMB -->
+<div class="pricing-group" data-price-cat="design" data-price-sub="thumb" hidden>
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Design — Thumbnail Design</h3>
+      <p class="pricing__subtitle muted">Performance-first thumbnails: contrast, hierarchy, and mobile readability.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Thumbnail Design (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--3">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">One-off thumbnail</p>
+      <div class="price__value">€14.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 1 thumbnail + 2 variants (A/B)</li>
+        <li><strong>Limits:</strong> No complex 3D / heavy illustration included</li>
+        <li><strong>Revisions:</strong> 1 revision included</li>
+        <li><strong>Delivery:</strong> 48–72h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Thumbnail Design (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Creator</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Most popular monthly</p>
+      <div class="price__value">€119.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 8 thumbnails / month + 2 variants / thumb</li>
+        <li><strong>Limits:</strong> No complex 3D / heavy illustration included</li>
+        <li><strong>Revisions:</strong> 3 revisions*</li>
+        <li><strong>Delivery:</strong> 24–48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Thumbnail Design (Creator)">Choose Creator</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">High-volume thumbnails</p>
+      <div class="price__value">€239.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 16 thumbnails / month + 3 variants (A/B/C)</li>
+        <li><strong>Limits:</strong> No complex 3D / heavy illustration included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><span class="asap asap--clock">ASAP</span> Turnaround</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Thumbnail Design (Ultra)">Choose Ultra</a>
+    </article>
+  </div>
+
+  <p class="muted tiny" style="margin-top:.65rem;">*Unlimited revisions within the agreed style/direction.</p>
+</div>
+
+<!-- DESIGN SOCIAL -->
+<div class="pricing-group" data-price-cat="design" data-price-sub="social" hidden>
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Design — Social Media Design</h3>
+      <p class="pricing__subtitle muted">Clean posts, carousels, stories — consistent typography & hierarchy.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Social Media Design (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--3">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Small batch</p>
+      <div class="price__value">€99.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 10 designs (posts/stories) — brand-ready</li>
+        <li><strong>Limits:</strong> No copywriting strategy / ad management included</li>
+        <li><strong>Revisions:</strong> 1 revision / design</li>
+        <li><strong>Delivery:</strong> 48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Social Media Design (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Creator</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">For weekly posting</p>
+      <div class="price__value">€199.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 20 designs / month + carousel layouts</li>
+        <li><strong>Limits:</strong> No posting / community management included</li>
+        <li><strong>Revisions:</strong> 3 revisions*</li>
+        <li><strong>Delivery:</strong> 24–48h</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€10 extra revision • +€20 faster delivery (if available) • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Social Media Design (Creator)">Choose Creator</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Brand system + high volume</p>
+      <div class="price__value">€399.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 40 designs / month + story & post templates</li>
+        <li><strong>Limits:</strong> No photo/video production included</li>
+        <li><strong>Revisions:</strong> Unlimited revisions*</li>
+        <li><span class="asap asap--clock">ASAP</span> Turnaround</li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Social Media Design (Ultra)">Choose Ultra</a>
+    </article>
+  </div>
+
+  <p class="muted tiny" style="margin-top:.65rem;">*Unlimited revisions within the agreed style/direction.</p>
+</div>
+
+<!-- WEB LANDING -->
+<div class="pricing-group" data-price-cat="web" data-price-sub="landing" hidden>
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Web Development — Landing Page</h3>
+      <p class="pricing__subtitle muted">Conversion-focused landing with modern UI, responsive and fast.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Web Development — Landing Page (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--3">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Fast launch</p>
+      <div class="price__value">€199.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> 1 page (up to 5 sections) + CTA + basic SEO</li>
+        <li><strong>Limits:</strong> No hosting/domain, paid integrations, or full copywriting included</li>
+        <li><strong>Revisions:</strong> 2 revisions</li>
+        <li><strong>Typical delivery:</strong> 5–7 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€40 faster delivery (if available) • +€80 extra section • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Web Development — Landing Page (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Pro</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Best balance</p>
+      <div class="price__value">€449.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> Up to 10 sections + micro animations + performance pass</li>
+        <li><strong>Limits:</strong> No hosting/domain, paid integrations, or full copywriting included</li>
+        <li><strong>Revisions:</strong> 4 revisions</li>
+        <li><strong>Typical delivery:</strong> 7–10 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€40 faster delivery (if available) • +€80 extra section • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Web Development — Landing Page (Pro)">Choose Pro</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Full premium</p>
+      <div class="price__value">€699.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> Up to 15 sections + advanced layout + custom components</li>
+        <li><strong>Limits:</strong> No hosting/domain, paid integrations, or full copywriting included</li>
+        <li><strong>Revisions:</strong> 6 revisions</li>
+        <li><strong>Typical delivery:</strong> 10–14 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€40 faster delivery (if available) • +€80 extra section • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Web Development — Landing Page (Ultra)">Choose Ultra</a>
+    </article>
+  </div>
+</div>
+
+<!-- WEB SHOP -->
+<div class="pricing-group" data-price-cat="web" data-price-sub="shop" hidden>
+  <div class="pricing__head">
+    <div>
+      <h3 class="pricing__title">Web Development — Shop Page</h3>
+      <p class="pricing__subtitle muted">Clean storefront UI: categories, product pages, cart flow direction.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm magnet" href="#contact" data-choose-package data-service="Web Development — Shop Page (Custom)">Need a custom quote?</a>
+  </div>
+
+  <div class="grid grid--3">
+    <article class="card price spotlight">
+      <span class="badge badge--muted">Starter</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Storefront base</p>
+      <div class="price__value">€399.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> Home + products listing + filters UI + basic SEO</li>
+        <li><strong>Limits:</strong> No payment setup, hosting/domain, or full product content creation included</li>
+        <li><strong>Revisions:</strong> 3 revisions</li>
+        <li><strong>Typical delivery:</strong> 10–14 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€80 faster delivery (if available) • +€120 extra page • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Web Development — Shop Page (Starter)">Choose Starter</a>
+    </article>
+
+    <article class="card price spotlight price--highlight">
+      <span class="badge badge--accent">Pro</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Complete experience</p>
+      <div class="price__value">€899.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> Home + category + product + cart/checkout screens (UI)</li>
+        <li><strong>Limits:</strong> Payment/integrations not included unless specified (custom quote)</li>
+        <li><strong>Revisions:</strong> 5 revisions</li>
+        <li><strong>Typical delivery:</strong> 14–21 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€40 faster delivery (if available) • +€80 extra page/template • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--primary w100" href="#contact" data-choose-package data-service="Web Development — Shop Page (Pro)">Choose Pro</a>
+    </article>
+
+    <article class="card price spotlight price--ultra">
+      <span class="badge badge--glow">Ultra</span>
+      <p class="muted tiny" style="margin:.35rem 0 0;">Full UI system</p>
+      <div class="price__value">€1,399.99</div>
+      <ul class="price__list">
+        <li><strong>Deliverables:</strong> Full store UI templates + design system + advanced components</li>
+        <li><strong>Limits:</strong> Custom backend/ERP/inventory integrations require custom quote</li>
+        <li><strong>Revisions:</strong> 8 revisions</li>
+        <li><strong>Typical delivery:</strong> 21–30 business days</li>
+        <li class="muted tiny" style="font-size:.85em; opacity:.85;">
+          Add-ons: +€20 extra revision • +€40 faster delivery (if available) • +€80 extra page/template • Need less? We can adjust scope easily
+        </li>
+      </ul>
+      <a class="btn btn--ghost w100" href="#contact" data-choose-package data-service="Web Development — Shop Page (Ultra)">Choose Ultra</a>
+    </article>
+          </div><!-- /.pricing__stack -->
+        </div><!-- /.pricing__wrap -->
+      </div><!-- /.container -->
+    </section><!-- /#pricing -->
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container section__head reveal">
+        <h2>Contact</h2>
+        <p class="muted">Tell us what you need. We’ll reply quickly.</p>
+      </div>
+
+      <div class="container grid grid--2 equal-cards">
+        <!-- LEFT -->
+        <div class="card spotlight reveal">
+          <div class="row row--between">
+            <h3 style="margin:0;">Send a message</h3>
+            <span class="badge badge--muted">Fast reply</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <form id="contactForm" class="form" autocomplete="on"
+  action="https://formspree.io/f/xojnqddg" method="POST">
+
+  <div class="form__row">
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your name" required />
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
+  </div>
+
+  <div class="form__row">
+    <label>
+      Discount Code (optional)
+      <input id="discountCode" name="discountCode" type="text" autocomplete="off" placeholder="EASTER10 / XMAS15" />
+    </label>
+
+    <label>
+      Estimated Budget
+      <input type="text" name="budget" placeholder="Your estimated budget" required />
+    </label>
+  </div>
+
+  <!-- (optional, dacă folosești status hidden) -->
+  <input type="hidden" name="discountStatus" id="discountStatus" value="">
+
+
+            <!-- MODIFICATION 6: Nested Service Selector -->
+            <label>
+              Select a service
+              <input type="hidden" name="service" id="serviceInput" required />
+              
+              <div class="contact-select-wrap">
+                  <!-- Category Level -->
+                  <div class="segmented segmented--fill segmented--center" role="tablist" aria-label="Service Category">
+                      <button class="segmented__btn is-active" type="button" data-contact-cat="video" role="tab">Video</button>
+                      <button class="segmented__btn" type="button" data-contact-cat="design" role="tab">Design</button>
+                      <button class="segmented__btn" type="button" data-contact-cat="web" role="tab">Web</button>
+                  </div>
+
+                  <!-- Sub Level -->
+                  <div class="contact-subs">
+                      <!-- Video Options -->
+                      <div class="segmented segmented--fill segmented--center" data-contact-sub-for="video" role="radiogroup">
+                          <button class="segmented__btn" type="button" data-service-btn="Long-Form Video" role="radio">Long-Form</button>
+                          <button class="segmented__btn" type="button" data-service-btn="Short-Form Video" role="radio">Short-Form</button>
+                      </div>
+                      <!-- Design Options -->
+                      <div class="segmented segmented--fill segmented--center" data-contact-sub-for="design" role="radiogroup" hidden>
+                          <button class="segmented__btn" type="button" data-service-btn="Thumbnail Design" role="radio">Thumbnail</button>
+                          <button class="segmented__btn" type="button" data-service-btn="Social Media Design" role="radio">Social Media</button>
+                      </div>
+                      <!-- Web Options -->
+                      <div class="segmented segmented--fill segmented--center" data-contact-sub-for="web" role="radiogroup" hidden>
+                          <button class="segmented__btn" type="button" data-service-btn="Landing Page" role="radio">Landing Page</button>
+                          <button class="segmented__btn" type="button" data-service-btn="Shop Page" role="radio">Shop Page</button>
+                      </div>
+                  </div>
+              </div>
+            </label>
+
+              <label>
+                Social Media/Phone (optional)
+                <input type="text" name="handle" placeholder="@yourhandle (app)/Phone Number"/>
+              </label>
+
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="What do you need? Add references, deadlines, and goals." required></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button class="btn btn--primary magnet" type="submit">Submit</button>
+              <a class="btn btn--ghost magnet" href="#pricing">See packages</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT -->
+        <aside class="card spotlight reveal">
+          <div class="row row--between">
+            <h3 style="margin:0;">Why work with us</h3>
+            <span class="badge badge--glow">Reliable</span>
+          </div>
+
+          <p class="muted" style="margin-top:.45rem;">
+            Clean workflow, fast replies, premium output — optimized for the platforms that matter.
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="muted tiny section-label">YOU GET</div>
+          <ul class="why__list">
+            <li>Clear communication & fast replies</li>
+            <li>Brand-consistent visuals across platforms</li>
+            <li>Optimized for retention & clicks</li>
+            <li>Clean files + organized delivery</li>
+            <li>Platform-ready exports (YouTube / TikTok / Reels)</li>
+            <li>Fast revisions within the agreed direction</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="note" style="margin:0;">
+            <span class="badge badge--muted">Tip</span>
+            <span class="muted">Add references + deadlines in the message for faster turnaround.</span>
+          </div>
+          <div class="note" style="margin:0;">
+            <span class="badge badge--muted">Tip</span>
+            <span class="muted">In Discount Code if glow is RED, code is invalid but if it's GREEN, code is valid.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section">
+      <div class="container section__head reveal">
+        <h2>Reviews</h2>
+        <p class="muted">Testimonials written by us — edit these anytime in <b>index.html</b>.</p>
+      </div>
+
+      <div class="container">
+        <div class="card spotlight reveal">
+          <div class="row row--between">
+            <h3 style="margin:0;">Client testimonials</h3>
+            <span class="badge badge--glow">Trusted</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="reviews-grid">
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Alex M.</div>
+                  <div class="review__service">Video Editing • <span class="muted">Jan 2026</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Super clean edit, fast turnaround, and the pacing is on point. Exactly what we needed.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Andrei D.</div>
+                  <div class="review__service">Video Editing • <span class="muted">Sep 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">They nailed the hook + pacing. Our retention improved and the edit looks premium.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Cristina R.</div>
+                  <div class="review__service">Thumbnail Design • <span class="muted">Dec 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Thumbnails are readable on mobile and consistent with our brand. CTR went up.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Paul C.</div>
+                  <div class="review__service">Thumbnail Design • <span class="muted">Jul 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Great readability and contrast. Feels “YouTube-pro” instantly.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Vlad T.</div>
+                  <div class="review__service">Social Media Design • <span class="muted">Nov 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Layouts clean, typography premium, and everything comes organized and ready to post.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Teodora S.</div>
+                  <div class="review__service">Social Media Design • <span class="muted">Aug 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Clean hierarchy and consistent branding. Everything comes ready to post.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Maria P.</div>
+                  <div class="review__service">Web Development • <span class="muted">Oct 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Fast, responsive landing page. Communication was clear and delivery was exactly as promised.</div>
+            </article>
+
+            <article class="review">
+              <div class="review__top">
+                <div>
+                  <div class="review__name">Elena N.</div>
+                  <div class="review__service">Web Development • <span class="muted">Jun 2025</span></div>
+                </div>
+                <div class="badge badge--glow">★★★★★</div>
+              </div>
+              <div class="review__text muted">Very smooth process. The site is fast, responsive, and looks expensive.</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">© 2026 Snappy Studio</div>
+
+      <div class="footer__center" aria-label="Social links">
+        <a class="social-icon social-icon--yt" href="https://www.youtube.com/@snappystudioro" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M21 7.5s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 4.3 12 4.3 12 4.3h0s-3.7 0-6.3.3c-.4.1-1.2.1-1.9.9-.6.6-.8 2-.8 2S3 9.1 3 10.7v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.7.8 1.7.8 2.1.9 1.5.1 6 .3 6 .3s3.7 0 6.3-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.2-.2-3.2Z" stroke="currentColor" stroke-width="2" />
+            <path d="M10 9.5v5l5-2.5-5-2.5Z" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <a class="social-icon social-icon--tt" href="https://www.tiktok.com/@snappystudio.ro" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M14 3v10.2a3.8 3.8 0 1 1-3-3.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 3c1.2 2.4 3.4 4 6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a class="social-icon social-icon--ig" href="https://www.instagram.com/snappystudio.ro" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="6" width="12" height="12" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M14.5 11.9a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M16.8 7.2h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer__right">
+        <button class="btn btn--ghost btn--sm magnet" id="backToTop" type="button">Back to top</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Portfolio modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close="true" aria-label="Close modal">×</button>
+      <div class="modal__body">
+        <div class="row row--between">
+          <span class="badge badge--glow" id="modalBadge">Project</span>
+          <span class="badge badge--muted">Preview</span>
+        </div>
+        <h3 id="modalTitle" style="margin-top:.65rem;">Project</h3>
+        <p class="muted" id="modalSubtitle"></p>
+        <div class="divider"></div>
+        <p class="muted" id="modalDetails"></p>
+        <div class="divider"></div>
+        <a class="btn btn--primary w100 magnet" href="#contact" data-close="true">Start a project</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
